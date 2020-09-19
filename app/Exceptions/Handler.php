@@ -48,8 +48,22 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
+        if ($request->is('api/*')) {
+            return response()->json($this->getJsonMessage($e), $this->getExceptionHTTPStatusCode($e));
+        }
+
         return parent::render($request, $exception);
+    }
+
+    protected function getJsonMessage($e)
+    {
+        return ['status' => 'false','message' => $e->getMessage()];
+    }
+
+    protected function getExceptionHTTPStatusCode($e)
+    {
+        return method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500;
     }
 }

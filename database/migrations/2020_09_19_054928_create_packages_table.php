@@ -15,11 +15,14 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->unsignedBigInteger('hotel_id');
             $table->decimal('price', 8, 2);
             $table->string('duration');
             $table->date('validity');
             $table->longText('description');
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
             $table->timestamps();
         });
     }

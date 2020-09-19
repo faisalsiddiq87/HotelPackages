@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIndexes extends Migration
+class AddSoftDelete extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,15 @@ class CreateIndexes extends Migration
     public function up()
     {
         Schema::table('packages', function (Blueprint $table) {
-            $table->foreign('hotel_id')->references('id')->on('hotels');
-            $table->foreign('created_by')->references('id')->on('users');
-            $table->foreign('updated_by')->references('id')->on('users');
+            $table->timestamp('deleted_at')->nullable();
+        });
+
+        Schema::table('hotels', function (Blueprint $table) {
+            $table->timestamp('deleted_at')->nullable();
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -27,6 +33,6 @@ class CreateIndexes extends Migration
      */
     public function down()
     {
-        ///
+        //
     }
 }
