@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Management\Services\AuthService;
 
+/**
+ * @group  User management
+ *
+ * APIs for managing auth users
+ */
 class AuthController extends Controller
 {
    public function __construct()
@@ -14,10 +19,10 @@ class AuthController extends Controller
    /**
      * Create user
      *
-     * @param  [string] name
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [string] password_confirmation
+     * @bodyParam  [string] name
+     * @bodyParam  [string] email
+     * @bodyParam  [string] password
+     * @bodyParam  [string] password_confirmation
      * @return [string] message
      */
     public function signup(Request $request)
@@ -28,9 +33,9 @@ class AuthController extends Controller
    /**
      * Login user and create token
      *
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [boolean] remember_me
+     * @bodyParam  [string] email
+     * @bodyParam  [string] password
+     * @bodyParam  [boolean] remember_me
      * @return [string] access_token
      * @return [string] token_type
      * @return [string] expires_at

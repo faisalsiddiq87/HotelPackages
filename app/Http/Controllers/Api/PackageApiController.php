@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Management\Services\PackageService;
 
+/**
+ * @group  Package management
+ *
+ * APIs for managing hotel packages
+ */
 class PackageApiController extends Controller
 {
    public function __construct()
@@ -16,8 +21,8 @@ class PackageApiController extends Controller
    /**
      * Get All packages
      *
-     * @param  [integer] page
-     * @param  [integer] limit
+     * @urlParam [integer] page
+     * @urlParam [integer] limit
      */
     public function findAll(Request $request)
     {
@@ -27,7 +32,7 @@ class PackageApiController extends Controller
     /**
      * Find package by Id
      *
-     * @param  $id query string
+     * @queryParam $id required to get data
      * @return [string] description
      */
     public function findById($id)
@@ -38,13 +43,13 @@ class PackageApiController extends Controller
    /**
      * Create/Update package
      *
-     * @param  [integer] hotel_id
-     * @param  [integer] name
-     * @param  [decimal] price
-     * @param  [string] duration
-     * @param  [date] validity
-     * @param  $id query string
-     * @return [string] description
+     * @bodyParam  [integer] hotel_id
+     * @bodyParam  [integer] name
+     * @bodyParam  [decimal] price
+     * @bodyParam  [string] duration
+     * @bodyParam  [date] validity
+     * @queryParam  $id required for update
+     * @bodyParam [string] description
      */
     public function store(Request $request, $id = null)
     {
@@ -54,7 +59,7 @@ class PackageApiController extends Controller
     /**
      * Delete package
      *
-     * @param  $id query string
+     * @queryParam $id required for deletion
      * @return [string] message
      */
     public function delete($id)
