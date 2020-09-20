@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Management\Services\AuthService;
 
-/**
- * @group  Dashboard
- *
- */
 class HomeController extends Controller
 {
    public function __construct()

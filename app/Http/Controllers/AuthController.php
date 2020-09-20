@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Management\Services\AuthService;
 
 /**
- * @group  User management
+ * @group  Auth Section
  *
  * APIs for managing auth users
  */

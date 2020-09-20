@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Management\Services\PackageService;
 
-/**
- * @group  Package
- *
- */
+
 class PackageController extends Controller
 {
   public function __construct()

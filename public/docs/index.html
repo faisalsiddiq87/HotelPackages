@@ -48,7 +48,191 @@
 <p>Welcome to the generated API reference.
 <a href="http://hotel.local/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
-<h1>Package management</h1>
+<h1>Auth Section</h1>
+<p>APIs for managing auth users</p>
+<!-- START_a925a8d22b3615f12fca79456d286859 -->
+<h2>Login user and create token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://hotel.local/api/auth/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"":{"string":"quis","boolean":"laborum"}}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/api/auth/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "": {
+        "string": "quis",
+        "boolean": "laborum"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/auth/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[string]</code></td>
+<td>password</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>[boolean]</code></td>
+<td>remember_me</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a925a8d22b3615f12fca79456d286859 -->
+<!-- START_9357c0a600c785fe4f708897facae8b8 -->
+<h2>Create user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://hotel.local/api/auth/signup" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"":{"string":"architecto"}}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/api/auth/signup"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "": {
+        "string": "architecto"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/auth/signup</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[string]</code></td>
+<td>password_confirmation</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9357c0a600c785fe4f708897facae8b8 -->
+<!-- START_16928cb8fc6adf2d9bb675d62a2095c5 -->
+<h2>Logout user (Revoke the token)</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/api/auth/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/api/auth/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/auth/logout</code></p>
+<!-- END_16928cb8fc6adf2d9bb675d62a2095c5 -->
+<!-- START_ff6d656b6d81a61adda963b8702034d2 -->
+<h2>Get the authenticated User</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/api/auth/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/api/auth/user"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/auth/user</code></p>
+<!-- END_ff6d656b6d81a61adda963b8702034d2 -->
+<h1>Hotel Packages Management</h1>
 <p>APIs for managing hotel packages</p>
 <!-- START_d9857a1dde14e3cc078f810328b8543b -->
 <h2>Create/Update package</h2>
@@ -56,17 +240,17 @@
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://hotel.local/api/package?%24id=veritatis" \
+    "http://hotel.local/api/package?%24id=quo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"":{"integer":"pariatur","decimal":"unde","string":"consequatur","date":"perferendis"}}'
+    -d '{"":{"integer":"ut","decimal":"esse","string":"praesentium","date":"non"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://hotel.local/api/package"
 );
 
 let params = {
-    "$id": "veritatis",
+    "$id": "quo",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -78,10 +262,10 @@ let headers = {
 
 let body = {
     "": {
-        "integer": "pariatur",
-        "decimal": "unde",
-        "string": "consequatur",
-        "date": "perferendis"
+        "integer": "ut",
+        "decimal": "esse",
+        "string": "praesentium",
+        "date": "non"
     }
 }
 
@@ -151,17 +335,17 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://hotel.local/api/package/1?%24id=neque" \
+    "http://hotel.local/api/package/1?%24id=id" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"":{"integer":"et","decimal":"eos","string":"aspernatur","date":"ullam"}}'
+    -d '{"":{"integer":"blanditiis","decimal":"sint","string":"vero","date":"sed"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://hotel.local/api/package/1"
 );
 
 let params = {
-    "$id": "neque",
+    "$id": "id",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -173,10 +357,10 @@ let headers = {
 
 let body = {
     "": {
-        "integer": "et",
-        "decimal": "eos",
-        "string": "aspernatur",
-        "date": "ullam"
+        "integer": "blanditiis",
+        "decimal": "sint",
+        "string": "vero",
+        "date": "sed"
     }
 }
 
@@ -297,7 +481,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://hotel.local/api/package/1?%24id=facilis" \
+    -G "http://hotel.local/api/package/1?%24id=accusantium" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -305,7 +489,7 @@ fetch(url, {
 );
 
 let params = {
-    "$id": "facilis",
+    "$id": "accusantium",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -354,7 +538,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://hotel.local/api/package/1?%24id=commodi" \
+    "http://hotel.local/api/package/1?%24id=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -362,7 +546,7 @@ fetch(url, {
 );
 
 let params = {
-    "$id": "commodi",
+    "$id": "aut",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -398,133 +582,17 @@ fetch(url, {
 </tbody>
 </table>
 <!-- END_46d4b26d943d7785233dc2670e70088d -->
-<h1>User management</h1>
-<p>APIs for managing auth users</p>
-<!-- START_a925a8d22b3615f12fca79456d286859 -->
-<h2>Login user and create token</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://hotel.local/api/auth/login" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"":{"string":"ut","boolean":"praesentium"}}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://hotel.local/api/auth/login"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "": {
-        "string": "ut",
-        "boolean": "praesentium"
-    }
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST api/auth/login</code></p>
-<h4>Body Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[string]</code></td>
-<td>password</td>
-<td>optional</td>
-</tr>
-<tr>
-<td><code>[boolean]</code></td>
-<td>remember_me</td>
-<td>optional</td>
-</tr>
-</tbody>
-</table>
-<!-- END_a925a8d22b3615f12fca79456d286859 -->
-<!-- START_9357c0a600c785fe4f708897facae8b8 -->
-<h2>Create user</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://hotel.local/api/auth/signup" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"":{"string":"sunt"}}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://hotel.local/api/auth/signup"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "": {
-        "string": "sunt"
-    }
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST api/auth/signup</code></p>
-<h4>Body Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[string]</code></td>
-<td>password_confirmation</td>
-<td>optional</td>
-</tr>
-</tbody>
-</table>
-<!-- END_9357c0a600c785fe4f708897facae8b8 -->
-<!-- START_16928cb8fc6adf2d9bb675d62a2095c5 -->
-<h2>Logout user (Revoke the token)</h2>
+<!-- START_3e80d241069a113a5a431ac6464d82c4 -->
+<h2>Find All Hotels</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://hotel.local/api/auth/logout" \
+    -G "http://hotel.local/api/package/hotels" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://hotel.local/api/auth/logout"
+    "http://hotel.local/api/package/hotels"
 );
 
 let headers = {
@@ -546,42 +614,8 @@ fetch(url, {
     "message": "Unauthenticated."
 }</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET api/auth/logout</code></p>
-<!-- END_16928cb8fc6adf2d9bb675d62a2095c5 -->
-<!-- START_ff6d656b6d81a61adda963b8702034d2 -->
-<h2>Get the authenticated User</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://hotel.local/api/auth/user" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://hotel.local/api/auth/user"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (500):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "status": "false",
-    "message": "Unauthenticated."
-}</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET api/auth/user</code></p>
-<!-- END_ff6d656b6d81a61adda963b8702034d2 -->
+<p><code>GET api/package/hotels</code></p>
+<!-- END_3e80d241069a113a5a431ac6464d82c4 -->
 <h1>general</h1>
 <!-- START_0c068b4037fb2e47e71bd44bd36e3e2a -->
 <h2>Authorize a client to access the user&#039;s account.</h2>
@@ -607,6 +641,12 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET oauth/authorize</code></p>
 <!-- END_0c068b4037fb2e47e71bd44bd36e3e2a -->
@@ -715,6 +755,12 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET oauth/tokens</code></p>
 <!-- END_d6a56149547e03307199e39e03e12d1c -->
@@ -796,6 +842,12 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET oauth/clients</code></p>
 <!-- END_babcfe12d87b8708f5985e9d39ba8f2c -->
@@ -904,6 +956,12 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET oauth/scopes</code></p>
 <!-- END_9e281bd3a1eb1d9eb63190c8effb607c -->
@@ -931,6 +989,12 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET oauth/personal-access-tokens</code></p>
 <!-- END_9b2a7699ce6214a79e0fd8107f8b1c9e -->
@@ -988,6 +1052,260 @@ fetch(url, {
 <h3>HTTP Request</h3>
 <p><code>DELETE oauth/personal-access-tokens/{token_id}</code></p>
 <!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
+<!-- START_53be1e9e10a08458929a2e0ea70ddb86 -->
+<h2>/</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /</code></p>
+<!-- END_53be1e9e10a08458929a2e0ea70ddb86 -->
+<!-- START_ba35aa39474cb98cfb31829e70eb8b74 -->
+<h2>login</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://hotel.local/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST login</code></p>
+<!-- END_ba35aa39474cb98cfb31829e70eb8b74 -->
+<!-- START_568bd749946744d2753eaad6cfad5db6 -->
+<h2>logout</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (302):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET logout</code></p>
+<!-- END_568bd749946744d2753eaad6cfad5db6 -->
+<!-- START_cb859c8e84c35d7133b6a6c8eac253f8 -->
+<h2>Dashboard</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/home" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/home"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET home</code></p>
+<!-- END_cb859c8e84c35d7133b6a6c8eac253f8 -->
+<!-- START_30059a09ef3f0284c40e4d06962ce08d -->
+<h2>Dashboard</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/dashboard" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/dashboard"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET dashboard</code></p>
+<!-- END_30059a09ef3f0284c40e4d06962ce08d -->
+<!-- START_808684940f87a776b29ac484f1b9a0e0 -->
+<h2>Create Package screen</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/package/create" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/package/create"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET package/create</code></p>
+<!-- END_808684940f87a776b29ac484f1b9a0e0 -->
+<!-- START_0ffa4802c0e656ff5dd21f065e7387ef -->
+<h2>Create Package screen</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/package/create/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/package/create/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET package/create/{id}</code></p>
+<!-- END_0ffa4802c0e656ff5dd21f065e7387ef -->
+<!-- START_552de89f1b0fd413d7de757439d248fc -->
+<h2>Package Detail Screen</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://hotel.local/package/view/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://hotel.local/package/view/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET package/view/{id}</code></p>
+<!-- END_552de89f1b0fd413d7de757439d248fc -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

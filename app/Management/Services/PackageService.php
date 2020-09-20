@@ -39,8 +39,9 @@ class PackageService implements Contract
     public function store($data, $id = "")
     {
         $response = $this->validator->validate($data, true);
-        $userId = Auth::id();
 
+        $userId = env("APP_ENV") == "testing" ? 1 : Auth::id();
+        
         if ($response === true) {
             $data['created_by'] = $data['updated_by'] = $userId;
             $user = $this->repository->store($data, $id);

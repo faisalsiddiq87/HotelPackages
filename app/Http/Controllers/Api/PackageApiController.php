@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Management\Services\PackageService;
 
 /**
- * @group  Package management
+ * @group  Hotel Packages Management
  *
  * APIs for managing hotel packages
  */

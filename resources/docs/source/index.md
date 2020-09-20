@@ -20,304 +20,7 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
-#Package management
-
-
-APIs for managing hotel packages
-<!-- START_d9857a1dde14e3cc078f810328b8543b -->
-## Create/Update package
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://hotel.local/api/package?%24id=veritatis" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"":{"integer":"pariatur","decimal":"unde","string":"consequatur","date":"perferendis"}}'
-
-```
-
-```javascript
-const url = new URL(
-    "http://hotel.local/api/package"
-);
-
-let params = {
-    "$id": "veritatis",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "": {
-        "integer": "pariatur",
-        "decimal": "unde",
-        "string": "consequatur",
-        "date": "perferendis"
-    }
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST api/package`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `$id` |  required  | for update
-#### Body Parameters
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    `[integer]` | name |  optional  | 
-        `[decimal]` | price |  optional  | 
-        `[string]` | description |  optional  | 
-        `[date]` | validity |  optional  | 
-    
-<!-- END_d9857a1dde14e3cc078f810328b8543b -->
-
-<!-- START_26a02c900f473d89e6ed6f1b90ac52fc -->
-## Create/Update package
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://hotel.local/api/package/1?%24id=neque" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"":{"integer":"et","decimal":"eos","string":"aspernatur","date":"ullam"}}'
-
-```
-
-```javascript
-const url = new URL(
-    "http://hotel.local/api/package/1"
-);
-
-let params = {
-    "$id": "neque",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "": {
-        "integer": "et",
-        "decimal": "eos",
-        "string": "aspernatur",
-        "date": "ullam"
-    }
-}
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT api/package/{id}`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `$id` |  required  | for update
-#### Body Parameters
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    `[integer]` | name |  optional  | 
-        `[decimal]` | price |  optional  | 
-        `[string]` | description |  optional  | 
-        `[date]` | validity |  optional  | 
-    
-<!-- END_26a02c900f473d89e6ed6f1b90ac52fc -->
-
-<!-- START_c54e951b6bf3fd54b78a60f9191ca6b1 -->
-## Get All packages
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://hotel.local/api/package" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://hotel.local/api/package"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (500):
-
-```json
-{
-    "status": "false",
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET api/package`
-
-#### URL Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -------
-    `[integer]` |  optional  | limit
-
-<!-- END_c54e951b6bf3fd54b78a60f9191ca6b1 -->
-
-<!-- START_2f2b050eda403dd7317fc2b6e56efa13 -->
-## Find package by Id
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://hotel.local/api/package/1?%24id=facilis" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://hotel.local/api/package/1"
-);
-
-let params = {
-    "$id": "facilis",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (500):
-
-```json
-{
-    "status": "false",
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET api/package/{id}`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `$id` |  required  | to get data
-
-<!-- END_2f2b050eda403dd7317fc2b6e56efa13 -->
-
-<!-- START_46d4b26d943d7785233dc2670e70088d -->
-## Delete package
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://hotel.local/api/package/1?%24id=commodi" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://hotel.local/api/package/1"
-);
-
-let params = {
-    "$id": "commodi",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE api/package/{id}`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `$id` |  required  | for deletion
-
-<!-- END_46d4b26d943d7785233dc2670e70088d -->
-
-#User management
+#Auth Section
 
 
 APIs for managing auth users
@@ -331,7 +34,7 @@ curl -X POST \
     "http://hotel.local/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"":{"string":"ut","boolean":"praesentium"}}'
+    -d '{"":{"string":"quis","boolean":"laborum"}}'
 
 ```
 
@@ -347,8 +50,8 @@ let headers = {
 
 let body = {
     "": {
-        "string": "ut",
-        "boolean": "praesentium"
+        "string": "quis",
+        "boolean": "laborum"
     }
 }
 
@@ -384,7 +87,7 @@ curl -X POST \
     "http://hotel.local/api/auth/signup" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"":{"string":"sunt"}}'
+    -d '{"":{"string":"architecto"}}'
 
 ```
 
@@ -400,7 +103,7 @@ let headers = {
 
 let body = {
     "": {
-        "string": "sunt"
+        "string": "architecto"
     }
 }
 
@@ -517,6 +220,349 @@ fetch(url, {
 
 <!-- END_ff6d656b6d81a61adda963b8702034d2 -->
 
+#Hotel Packages Management
+
+
+APIs for managing hotel packages
+<!-- START_d9857a1dde14e3cc078f810328b8543b -->
+## Create/Update package
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://hotel.local/api/package?%24id=quo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"":{"integer":"ut","decimal":"esse","string":"praesentium","date":"non"}}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/api/package"
+);
+
+let params = {
+    "$id": "quo",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "": {
+        "integer": "ut",
+        "decimal": "esse",
+        "string": "praesentium",
+        "date": "non"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/package`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `$id` |  required  | for update
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `[integer]` | name |  optional  | 
+        `[decimal]` | price |  optional  | 
+        `[string]` | description |  optional  | 
+        `[date]` | validity |  optional  | 
+    
+<!-- END_d9857a1dde14e3cc078f810328b8543b -->
+
+<!-- START_26a02c900f473d89e6ed6f1b90ac52fc -->
+## Create/Update package
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://hotel.local/api/package/1?%24id=id" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"":{"integer":"blanditiis","decimal":"sint","string":"vero","date":"sed"}}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/api/package/1"
+);
+
+let params = {
+    "$id": "id",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "": {
+        "integer": "blanditiis",
+        "decimal": "sint",
+        "string": "vero",
+        "date": "sed"
+    }
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/package/{id}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `$id` |  required  | for update
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `[integer]` | name |  optional  | 
+        `[decimal]` | price |  optional  | 
+        `[string]` | description |  optional  | 
+        `[date]` | validity |  optional  | 
+    
+<!-- END_26a02c900f473d89e6ed6f1b90ac52fc -->
+
+<!-- START_c54e951b6bf3fd54b78a60f9191ca6b1 -->
+## Get All packages
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/api/package" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/api/package"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "status": "false",
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/package`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `[integer]` |  optional  | limit
+
+<!-- END_c54e951b6bf3fd54b78a60f9191ca6b1 -->
+
+<!-- START_2f2b050eda403dd7317fc2b6e56efa13 -->
+## Find package by Id
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/api/package/1?%24id=accusantium" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/api/package/1"
+);
+
+let params = {
+    "$id": "accusantium",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "status": "false",
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/package/{id}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `$id` |  required  | to get data
+
+<!-- END_2f2b050eda403dd7317fc2b6e56efa13 -->
+
+<!-- START_46d4b26d943d7785233dc2670e70088d -->
+## Delete package
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://hotel.local/api/package/1?%24id=aut" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/api/package/1"
+);
+
+let params = {
+    "$id": "aut",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/package/{id}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `$id` |  required  | for deletion
+
+<!-- END_46d4b26d943d7785233dc2670e70088d -->
+
+<!-- START_3e80d241069a113a5a431ac6464d82c4 -->
+## Find All Hotels
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/api/package/hotels" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/api/package/hotels"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "status": "false",
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/package/hotels`
+
+
+<!-- END_3e80d241069a113a5a431ac6464d82c4 -->
+
 #general
 
 
@@ -551,6 +597,13 @@ fetch(url, {
 ```
 
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
 
 ### HTTP Request
 `GET oauth/authorize`
@@ -703,6 +756,13 @@ fetch(url, {
 ```
 
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
 
 ### HTTP Request
 `GET oauth/tokens`
@@ -817,6 +877,13 @@ fetch(url, {
 ```
 
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
 
 ### HTTP Request
 `GET oauth/clients`
@@ -969,6 +1036,13 @@ fetch(url, {
 ```
 
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
 
 ### HTTP Request
 `GET oauth/scopes`
@@ -1007,6 +1081,13 @@ fetch(url, {
 ```
 
 
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
 
 ### HTTP Request
 `GET oauth/personal-access-tokens`
@@ -1089,5 +1170,351 @@ fetch(url, {
 
 
 <!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
+
+<!-- START_53be1e9e10a08458929a2e0ea70ddb86 -->
+## /
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+null
+```
+
+### HTTP Request
+`GET /`
+
+
+<!-- END_53be1e9e10a08458929a2e0ea70ddb86 -->
+
+<!-- START_ba35aa39474cb98cfb31829e70eb8b74 -->
+## login
+> Example request:
+
+```bash
+curl -X POST \
+    "http://hotel.local/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST login`
+
+
+<!-- END_ba35aa39474cb98cfb31829e70eb8b74 -->
+
+<!-- START_568bd749946744d2753eaad6cfad5db6 -->
+## logout
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (302):
+
+```json
+null
+```
+
+### HTTP Request
+`GET logout`
+
+
+<!-- END_568bd749946744d2753eaad6cfad5db6 -->
+
+<!-- START_cb859c8e84c35d7133b6a6c8eac253f8 -->
+## Dashboard
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/home" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/home"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET home`
+
+
+<!-- END_cb859c8e84c35d7133b6a6c8eac253f8 -->
+
+<!-- START_30059a09ef3f0284c40e4d06962ce08d -->
+## Dashboard
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/dashboard" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/dashboard"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET dashboard`
+
+
+<!-- END_30059a09ef3f0284c40e4d06962ce08d -->
+
+<!-- START_808684940f87a776b29ac484f1b9a0e0 -->
+## Create Package screen
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/package/create" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/package/create"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET package/create`
+
+
+<!-- END_808684940f87a776b29ac484f1b9a0e0 -->
+
+<!-- START_0ffa4802c0e656ff5dd21f065e7387ef -->
+## Create Package screen
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/package/create/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/package/create/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET package/create/{id}`
+
+
+<!-- END_0ffa4802c0e656ff5dd21f065e7387ef -->
+
+<!-- START_552de89f1b0fd413d7de757439d248fc -->
+## Package Detail Screen
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://hotel.local/package/view/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://hotel.local/package/view/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET package/view/{id}`
+
+
+<!-- END_552de89f1b0fd413d7de757439d248fc -->
 
 
