@@ -19,6 +19,10 @@ Hotel Packages CRUD
 1. Run the Command `phpunit` on your project root.
 5. All the test cases should return OK with assertions.
 
+### Documentation for APIS
+
+1. After project is setup access the route `/docs` for documentations.
+
 ## ScreenShots
 
 * Please review [screenshots](https://github.com/faisalsiddiq87/HotelPackages/tree/master/screenshots) for login, listing, add, update, detail, testCases etc
