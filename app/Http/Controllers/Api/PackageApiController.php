@@ -66,4 +66,14 @@ class PackageApiController extends Controller
     {
       return response()->json($this->service->delete($id), 200);
     }
+
+    /**
+     * Find All Hotels
+     *
+     * @return [array] hotels
+     */
+    public function findAllHotels()
+    {
+      return response()->json($this->service->findAllHotels(), 200);
+    }
 }

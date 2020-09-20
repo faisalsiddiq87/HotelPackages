@@ -1,1 +1,20 @@
-//
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+@import "./dashboard/vendors/perfect-scrollbar.css";
+@import "./dashboard/theme.css";
+@import "./dashboard/component/header/base/light.css";
+@import "./dashboard/component/header/menu/light.css";
+@import "./dashboard/component/brand/dark.css";
+@import "./dashboard/component/aside/dark.css";

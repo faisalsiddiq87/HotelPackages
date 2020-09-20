@@ -27,13 +27,15 @@ Route::group([
     });
 });
 
+
 Route::group([
     'prefix' => 'package',
     'middleware' => 'auth:api'
 ], function () {
     Route::post('', 'Api\PackageApiController@store');
-    Route::put('{id}', 'Api\PackageApiController@store');
+    Route::put('{id}', 'Api\PackageApiController@store')->where('id', '[0-9]+');
     Route::get('', 'Api\PackageApiController@findAll');
-    Route::get('{id}', 'Api\PackageApiController@findById');
-    Route::delete('{id}', 'Api\PackageApiController@delete');
+    Route::get('{id}', 'Api\PackageApiController@findById')->where('id', '[0-9]+');
+    Route::delete('{id}', 'Api\PackageApiController@delete')->where('id', '[0-9]+');
+    Route::get('hotels', 'Api\PackageApiController@findAllHotels');
 });

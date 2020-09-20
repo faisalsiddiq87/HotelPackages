@@ -9,7 +9,7 @@ class PackageRepository implements Contract
 {
     public function getAllPackages()
     {
-        return Package::with(['hotel', 'creator'])->simplePaginate(10);
+        return Package::query()->with(['hotel', 'creator']);
     }
 
     public function findById($id)

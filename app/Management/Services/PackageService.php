@@ -6,8 +6,10 @@ use App\Management\Validations\PackageValidation;
 use Illuminate\Support\Facades\Auth;
 use App\Management\Repositories\PackageRepository;
 use App\Management\Contracts\Service\Contract;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\Hotel;
+use Carbon\Carbon;
+use Datatables;
 
 class PackageService implements Contract
 {
@@ -24,7 +26,7 @@ class PackageService implements Contract
 
     public function findAll($data)
     {
-        return ['data' => $this->repository->getAllPackages($data), 'message' => 'Pacakges Data found'];
+        return Datatables::of($this->repository->getAllPackages($data)->get())->make(true);
     }
 
     public function findById($id)
@@ -37,7 +39,6 @@ class PackageService implements Contract
     public function store($data, $id = "")
     {
         $response = $this->validator->validate($data, true);
-
         $userId = Auth::id();
 
         if ($response === true) {
@@ -54,5 +55,10 @@ class PackageService implements Contract
         $this->repository->delete($data, $id);
 
         return ['data' =>[], 'message' => 'Package deleted Successfully' ];
+    }
+
+    public function findAllHotels()
+    {
+        return ['data' =>Hotel::all(), 'message' => 'Hotels Data Found.' ];
     }
 }
