@@ -32,7 +32,7 @@ class AuthTest extends TestCase
         $response = $this->withHeaders([
             'Content-Type' => 'application/json',
             'X-Requested-With' => 'XMLHttpRequest',
-        ])->postJson('/api/auth/signup', ['email' => 'faisal.siddiq87+09871@gmail.com', 'password' => '123456', 
+        ])->postJson('/api/auth/signup', ['email' => 'faisal.siddiq87@gmail.com', 'password' => '123456', 
         "password_confirmation" => "123456", "name" => "faisal"]);
     
         $response->assertStatus(200)
